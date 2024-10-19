@@ -20,9 +20,8 @@ int is_full(struct stack *s1)
     {
         return 1;
     }
-    else{
-        return 0;
-    }
+
+    return 0;
 }
 void push(struct stack *s1, int n)
 {
@@ -66,8 +65,10 @@ void display(struct stack *s1)
         printf("\n");
     }
 }
-int peek(struct stack *s1) {
-    if (is_empty(s1)) {
+int peek(struct stack *s1)
+{
+    if (is_empty(s1))
+    {
         printf("Stack is empty! No element to peek\n");
         return -1;
     }
@@ -75,12 +76,13 @@ int peek(struct stack *s1) {
 }
 int count(struct stack *s1)
 {
-    if(is_empty(s1))
+    if (is_empty(s1))
     {
         return -1;
     }
-    else{
-        return s1->top+1;
+    else
+    {
+        return s1->top + 1;
     }
 }
 void main()
@@ -92,15 +94,15 @@ void main()
     push(s1, 34);
     push(s1, 45);
     push(s1, 67);
-    printf("total element count : %d\n",count(s1));
+    printf("total element count : %d\n", count(s1));
     push(s1, 88);
     push(s1, 888);
-    printf("total eleemnt count : %d\n",count(s1));
+    printf("total eleemnt count : %d\n", count(s1));
     push(s1, 55);
     display(s1);
-    printf("%d element is pop\n",pop(s1));
-    printf("total eleemnt count : %d\n",count(s1));
+    printf("%d element is pop\n", pop(s1));
+    printf("total eleemnt count : %d\n", count(s1));
     push(s1, 90);
     display(s1);
-    printf("last elemet is %d\n",peek(s1));
+    printf("last elemet is %d\n", peek(s1));
 }
