@@ -44,6 +44,7 @@ void merge_sort(int arr[], int low, int high)
         merge_sort(arr, low, mid);
         merge_sort(arr, mid + 1, high);
         merge(arr, low, mid, high);
+        display(arr,8);
     }
 }
 void display(int arr[], int size)

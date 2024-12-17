@@ -22,20 +22,39 @@ void inorder(struct node *root)
         inorder(root->right);
     }
 }
-struct node * bst_search(struct node *root,int item)
+struct node *bst_search(struct node *root, int item)
 {
-    if(root==NULL || root->data == item )
+    if (root == NULL || root->data == item)
     {
         return root;
     }
-    else if (root->data<item)
+    else if (root->data < item)
     {
-        return bst_search(root->right,item);
+        return bst_search(root->right, item);
     }
     else
     {
-         return bst_search(root->left,item);
+        return bst_search(root->left, item);
     }
+}
+struct node *iterative_bst_search(struct node *root, int item)
+{
+    while (root != NULL)
+    {
+        if(root->data==item)
+        {
+            return root;
+        }
+        else if(root->data>item)
+        {
+            root=root->left;
+        }
+        else
+        {
+            root=root->right;
+        }
+    }
+    return NULL;
 }
 void main()
 {
@@ -55,11 +74,12 @@ void main()
     r1->right = r1r2;
     printf("\nin order : ");
     inorder(root);
-    if(bst_search(root,55) != NULL)
+    if (iterative_bst_search(root, 55) != NULL)
     {
         printf("\nfind ");
     }
-    else{
+    else
+    {
         printf("\nnot find");
     }
 }

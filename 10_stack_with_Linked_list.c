@@ -34,7 +34,7 @@ void dispaly()
 {
     if (head == NULL)
     {
-        printf("stack is empty we cant display tehm\n");
+        printf("stack is empty we cant display them\n");
     }
     else
     {
