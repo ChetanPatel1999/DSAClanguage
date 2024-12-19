@@ -1,4 +1,4 @@
-// infix to postfix change operation 
+// infix to prefix change operation 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -95,7 +95,7 @@ char *infix_to_postfix(char *infix)
         {
             if (!is_empty())
             {
-                if (precedence(infix[i]) > precedence(stack_top()))
+                if (precedence(infix[i]) >=precedence(stack_top()))
                 {
                     push(infix[i]);
                     i++;
@@ -123,6 +123,9 @@ char *infix_to_postfix(char *infix)
 }
 void main()
 {
-    char infix[] = "p-q-r/a";
-    printf("postfix exp : %s", infix_to_postfix(infix));
+    char infix[] = "A*B+C/D";
+    strrev(infix);
+    char *res =infix_to_postfix(infix);
+    strrev(res);
+    printf("prifix exp : %s",res);
 }
