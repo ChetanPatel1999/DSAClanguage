@@ -111,4 +111,6 @@ void main()
     {
         printf("\nnot find");
     }
+    root=createTreeRecursivly();
+    inorder(root);
 }

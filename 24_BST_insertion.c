@@ -22,30 +22,47 @@ void inorder(struct node *root)
         inorder(root->right);
     }
 }
-void insertion(struct node *root, int data)
+void insertion(struct node **root, int data)
 {
-    while (root != NULL)
+    struct node *current = *root;
+    struct node *parent = NULL;
+    while (current != NULL)
     {
-        if (root->data == data)
+        parent = current;
+        if (current->data == data)
         {
             printf("duplicate node");
+            return;
         }
-        else if (root->data < data)
+        else if (current->data < data)
         {
-            root = root->right;
+            current = current->right;
         }
         else
         {
-            root = root->left;
+            current = current->left;
         }
     }
-    root = createnode(data);
+    if (parent == NULL)
+    {
+        // Tree was empty
+        *root = createnode(data);
+    }
+    else if (data < parent->data)
+    {
+        parent->left = createnode(data);
+    }
+    else
+    {
+        parent->right = createnode(data);
+    }
 }
 void main()
 {
     struct node *root = NULL;
-    insertion(root, 12);
-    insertion(root, 25);
-    insertion(root, 55);
+    insertion(&root, 12);
+    insertion(&root, 25);
+    insertion(&root, 55);
+    insertion(&root,5);
     inorder(root);
 }
