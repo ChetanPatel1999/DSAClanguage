@@ -10,6 +10,7 @@ int adjmat[][7] =
         {0, 0, 0, 0, 1, 0, 0},
         {0, 0, 0, 0, 1, 0, 0},
 };
+char name[10][20]={"ujjain","indore","ratlam","ram","don","shyam","sunder"};
 int visited[] = {0, 0, 0, 0, 0, 0, 0};
 void DFS(int i)
 {
@@ -26,5 +27,5 @@ void DFS(int i)
 }
 void main()
 {
-    DFS(5);
+    DFS(0);
 }
